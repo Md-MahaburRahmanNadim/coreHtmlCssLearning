@@ -1,0 +1,128 @@
+ :root{
+    --clr-dark: #0f172a;
+    --clr-light: #f1f5f9;
+    --clr-accent:#e11d48; 
+   
+   /* --clr is a variable name, clr is a color name, dark is a color value
+    */
+    
+    
+
+ }
+ *,*::before,*::after{
+    /* margin: 0;
+    padding: 0; */
+    box-sizing: border-box;
+ }
+ body{
+    margin:0;
+    padding:0;
+    line-height: 1.6;
+    word-spacing:1.4px;
+    font-family: 'Poppins', sans-serif;
+    color:var(--clr-dark);
+    display: flex;  /* flexbox 
+    meaning of display:flex is to make the parent element as a flex container 
+    */ 
+    justify-content: center; /* to center the content horizontally */
+    align-items: center; /* to center the content vertically */
+    height: 100vh; /* to make the height of the body as 100% of the viewport height */
+ }
+ .container{
+   width: 80%;
+   height: 700px;
+   margin:0 auto;
+   border: 10px solid var(--clr-dark);
+ }
+
+ .item{
+    width:150px;
+    height: 150px;
+    background-color: #fb7185;
+    padding: 1em;
+    font-weight: 700;
+    color:var(--clr-light);
+    border:10px solid var(--clr-accent);
+    border-radius: 10px;
+ }
+ 
+ .container{
+      display: flex; /* flexbox 
+      meaning of display:flex is to make the parent element as a flex container and aling the items in a row(horizontal) BY default it is in a horizontal direction. to make it vartiical we use flex-direction:column like below
+      */
+      /* flex-direction: row
+      meaning of flex-direction:row is to make the flex items to be in a row(horizontal) BY default it is in a horizontal direction. to make it vartiical we use flex-direction:column like below
+      
+      */
+      /* flex-direction: column; to make the flex items to be in a column(vertical) derection */
+      /* flex-wrap: wrap; /* */
+
+      
+      /*justify-content: space-evenly;  to center the content horizontally 
+      differet value of justify-content are flex-start, flex-end, center, space-between, space-around, space-evenly
+      and meaning of those values are
+      flex-start: items are packed toward the start line(left side)
+      flex-end: items are packed toward the end line(right side)
+      center: items are centered along the line(middle)
+      space-between: items are evenly distributed in the line; first item is on the start line, last item on the end line
+      space-around: items are evenly distributed in the line with equal space around them  (like space-between but with half-size spaces on either end)
+      space-evenly: items are distributed so that the spacing between any two items (and the space to the edges) is equal (like space-around but with equal space on either end)
+      
+      */
+      
+      /* align-items: baseline;to center the content vertically 
+      differet value of align-items are flex-start, flex-end, center, baseline, stretch and meaning of those values are
+      flex-start: items are packed toward the start line(top side)
+      flex-end: items are packed toward the end line(bottom side)
+      center: items are centered along the line(middle)
+      baseline: items are aligned such as their baselines align (like text) if the size of the text of any item cahnge but the baseline of the text will not change
+      stretch: items are stretched to fit the container (still respect min-width/max-width)
+
+      
+      */
+      /* by default item try to fit one line if the display property is flex.There for they loss their width . to solve this problem we use flex-wrap: wrap;
+      
+      */
+      /* flex-wrap: wrap;   */
+      /* when we set flex-warp it's unlock a new property called aligin-content and it's value are flex-start, flex-end, center, space-between, space-around, stretch and meaning of those values are
+      flex-start: lines packed to the start of the container
+      flex-end: lines packed to the end of the container
+      center: lines packed to the center of the container
+      space-between: lines evenly distributed; the first line is at the start of the container while the last one is at the end
+      space-around: lines evenly distributed with equal space around each line
+      stretch: lines stretch to take up the remaining space
+
+
+      and when we use flex-wrap: wrap-reverse; the value of align-content will be reverse of the above value
+
+      */
+      /* align-content: flex-end; */
+      gap: 1rem;/* to give space between the items */
+ }
+/* 
+to poof the basline the use this example by incresing the font size of the item1 you see that other item will change their position but the baseline of the item1(text) will not change
+ .item1{
+   font-size: 2rem;
+ } */
+
+ /* there a some property which work reference with direct childen element 
+ flex-grow: 1; to make the item grow to fill the available space
+   flex-shrink: 1; to make the item shrink to fit the container. if we set flex-shrink: 0; it will not shrink at all. if we set flex-shrink: 2; it will shrink twice as much as the others. 
+   flex-basis: 0; to set the initial size of an item. if we set flex-basis: 100px; it will be 100px wide. if we set flex-basis: 50%; it will be 50% of the container's width. if we set flex-basis: auto; it will be the size of its content. Be careful with this one, as it can be tricky. If you set flex-basis: auto; on all items, they will all be the same size, even if they have different content. Besically if your item already has a size like a width but you want to overwrite that size with something else then your will use flex-basis like below
+ */
+   .item1{
+      /* flex-basis: 300px; */
+      /* the shorthand property of flexgrow,flex-shrink,flex-bases is flex. When we give only one value then it's take as a flex-grow value others two values are automatical set here */
+      flex: 1; 
+      /* align-self 
+      this one will overwrite the value i set in the align item on the container level but for an individual item. By using this property we can make an item to be aligned differently than the others. like some item we want to be in the center and some item we want to be in the end of the container. in a cross axis
+      */
+      align-self: center;
+      /* order: 1; to change the order of the item
+      by defoult every item has order:0;
+      order:-1 to move the item to the first position
+      order:1 to move the item to the last position
+
+      */
+      order: 1;
+   }
